@@ -26,10 +26,9 @@ const parse = data => {
  * @param  {String}  url
  * @return {Object} restaurant
  */
-module.exports.scrapeRestaurant = async url => {
-  const response = await axios(url);
+module.exports.scrapeRestaurant = async response => {
+  //const response = await axios(url);
   const {data, status} = response;
-
   if (status >= 200 && status < 300) {
     return parse(data);
   }
