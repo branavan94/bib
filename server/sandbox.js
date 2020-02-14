@@ -9,9 +9,10 @@ async function sandbox () {
   axios.get('https://www.maitresrestaurateurs.fr/module/annuaire/ajax/load-maps-data')
   .then(async function (userResponse) 
   {
-    //restaurateur.scrapeMaitre(userResponse.data);
-    console.log(userResponse.data);
+    restaurateur.scrapeMaitre(userResponse);
   });
+
+   
 
    /* var restaurant = await michelin.scrapeRestaurant('https://guide.michelin.com/fr/fr/restaurants/bib-gourmand');
     for(var i = 2;i<30;i++)
@@ -28,5 +29,4 @@ async function sandbox () {
     process.exit(1);
   }
 }
-
 sandbox();
