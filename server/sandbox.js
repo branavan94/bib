@@ -1,25 +1,32 @@
 /* eslint-disable no-console, no-process-exit */
 const michelin = require('./michelin');
-const axios = require('axios');
+const axios = require('C:/Users/brano/Desktop/4A/S8/Web Application Architectures/Bib/bib2/bib/node_modules/axios');
+const restaurateur = require('./restaurateur');
+
 async function sandbox () {
-axios.all([
-    axios.get('http://apir.viamichelin.com/apir/2/findPOI.json2/RESTAURANT/fra?center=2.35:48.85&authKey=RESTGP20200128141016590329233794&nb=100&dist=200000&filter=bib_gourmand%20eq%201&charset=UTF-8'),
-    axios.get('http://apir.viamichelin.com/apir/2/findPOI.json2/RESTAURANT/fra?center=2.35:48.85&authKey=RESTGP20200128141016590329233794&nb=10&dist=200000&filter=bib_gourmand%20eq%201&charset=UTF-8')
-  ])
-  .then(axios.spread(function (userResponse, reposResponse) {
-    //... but this callback will be executed only when both requests are complete.
-    const restaurant = michelin.scrapeRestaurant(userResponse);
-    console.log(restaurant);
-    //console.log(restaurant[0].length);
-  }));
-    //const restaurant = await michelin.scrapeRestaurant(searchLink);
-    //const restaurant = await axios(searchLink)
-    //console.log(restaurant);
-    //console.log(restaurant.length);
-    //console.log('done');
-    //process.exit(0);
+  try {
+    console.log(`🕵️‍♀️  browsing ...`);
+  axios.get('https://www.maitresrestaurateurs.fr/module/annuaire/ajax/load-maps-data')
+  .then(async function (userResponse) 
+  {
+    //restaurateur.scrapeMaitre(userResponse.data);
+    console.log(userResponse.data);
+  });
+
+   /* var restaurant = await michelin.scrapeRestaurant('https://guide.michelin.com/fr/fr/restaurants/bib-gourmand');
+    for(var i = 2;i<30;i++)
+      {
+          var temp = await michelin.scrapeRestaurant('https://guide.michelin.com/fr/fr/restaurants/bib-gourmand/page/'+i);
+          temp.forEach(item => restaurant.push(item));
+      }
+    
+    console.log(restaurant.length);*/
+  } 
+  catch (e) 
+  {
+    console.error(e);
+    process.exit(1);
+  }
 }
 
-//const [,, searchLink] = process.argv;
 sandbox();
-

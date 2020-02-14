@@ -7,18 +7,21 @@ const cheerio = require('cheerio');
  * @return {Object} restaurant
  */
 const parse = data => {
-  //const $ = cheerio.load(data);
-  //const name = $('.section-main h2.restaurant-details__heading--title').text();
-  //const experience = $('#experience-section > ul > li:nth-child(2)').text();
-  const restaurant_list = data.poiList;
-  const michou = []
-  for(var i = 0; i<restaurant_list.length; i++)
+  const $ = cheerio.load(data);
+  var tab = [];
+  for(var i = 1;i<22;i++)
   {
-  	const address = restaurant_list[i].datasheets[0].address
-  	const name = restaurant_list[i].datasheets[0].name
-  	michou.push({address,name})
+  var name = $("body > main > section.section-main.search-results.search-listing-result > div > div > div.row.restaurant__list-row.js-toggle-result.js-geolocation > div:nth-child("+i+") > div > div.card__menu-content.js-match-height-content > h5 > a").text();
+  var city = $("body > main > section.section-main.search-results.search-listing-result > div > div > div.row.restaurant__list-row.js-toggle-result.js-geolocation > div:nth-child("+i+") > div > div.card__menu-footer.d-flex.js-match-height-footer > div.card__menu-footer--location.flex-fill").text();
+  name = name.replace(/\n/g,'').trim();
+  city = city.replace(/\n/g,'').trim();
+  if(name != '')
+  {
+  tab.push({name,city});
   }
-  return michou;
+  }
+  //return {name, experience};
+  return tab
 };
 
 /**
@@ -26,13 +29,27 @@ const parse = data => {
  * @param  {String}  url
  * @return {Object} restaurant
  */
-module.exports.scrapeRestaurant = async response => {
-  //const response = await axios(url);
+module.exports.scrapeRestaurant = async url => {
+  const response = await axios(url);
   const {data, status} = response;
+
   if (status >= 200 && status < 300) {
     return parse(data);
   }
-
+  if(url  == 'https://guide.michelin.com/fr/fr/restaurants/bib-gourmand/page/29')
+  {
+  const $ = cheerio.load(data);
+  var tab = [];
+  for(var i = 1;i<6;i++)
+  {
+  var name = $("body > main > section.section-main.search-results.search-listing-result > div > div > div.row.restaurant__list-row.js-toggle-result.js-geolocation > div:nth-child("+i+") > div > div.card__menu-content.js-match-height-content > h5 > a").text();
+  var city = $("body > main > section.section-main.search-results.search-listing-result > div > div > div.row.restaurant__list-row.js-toggle-result.js-geolocation > div:nth-child("+i+") > div > div.card__menu-footer.d-flex.js-match-height-footer > div.card__menu-footer--location.flex-fill").text();
+  name = name.replace(/\n/g,'').trim();
+  city = city.replace(/\n/g,'').trim(); 
+  tab.push({name,city});
+  }
+  return tab;
+}
   console.error(status);
 
   return null;
@@ -45,28 +62,3 @@ module.exports.scrapeRestaurant = async response => {
 module.exports.get = () => {
   return [];
 };
-
-/*
-const axios = require ("axios") ;
-const apikey = "JSV2GP20200128141016340780402486$165380";
-
-const getWeather = location => {
-	return new Promise (async(resolve , reject ) =>{
-		try {
-const weatherConditions = await axios.get( // get weather info from the api
-	" https://api.apixu.com/v1/forecast.json",
-	{
-		params : {
-			key: apikey ,
-			q: location ,
-			days : 3
-		}
-	}) ;
-resolve (weatherConditions.data) // returns back the results to the chatbot
-}
-catch (error) 
-	{
-	reject (error) ;
-	}
-}) ;
-}*/
