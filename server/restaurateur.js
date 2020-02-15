@@ -2,7 +2,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 
 
-module.exports.scrapeMaitre = async response => 
+module.exports.scrapeMaitre = async url => 
 {
   /*const restaurant_list = data.poiList;
   const michou = []
@@ -14,10 +14,12 @@ module.exports.scrapeMaitre = async response =>
   }
   return michou;*/
   //var $ = cheerio.load(response.data);
+  const response = await axios(url);
   eval(response.data);
   var tab = []
-  addressPoints.forEach(element => tab.push(element[3].entreprise));
-  console.log(tab.length)
+  addressPoints.forEach(element => tab.push(element[3].entreprise.toLowerCase()));
+  //console.log(tab.length)
+  return tab
 }
 
 
