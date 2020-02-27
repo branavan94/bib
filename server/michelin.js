@@ -1,6 +1,5 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
-
 /**
  * Parse webpage restaurant
  * @param  {String} data - html response
@@ -9,7 +8,17 @@ const cheerio = require('cheerio');
 const parse = data => {
   const $ = cheerio.load(data);
   var tab = [];
-  for(var i = 1;i<22;i++)
+
+  /*var c = 1;
+  var length = $("  body > main > section.section-main.search-results.search-listing-result > div > div > div.row.restaurant__list-row.js-toggle-result.js-geolocation.js-restaurant__list_items > div:nth-child(13) > div > div.card__menu-image > a").text();
+  length = length.replace(/\n/g,'').trim().toLowerCase();
+  while(length.length >2 )
+  {
+    c++;
+    length = $("body > main > section.section-main.search-results.search-listing-result > div > div > div.row.restaurant__list-row.js-toggle-result.js-geolocation > div:nth-child("+c+") > div > div.card__menu-content.js-match-height-content > h5 > a").text();
+    length = length.replace(/\n/g,'').trim().toLowerCase();
+  }
+  for(var i = 1;i<c+1;i++)
   {
   var name = $("body > main > section.section-main.search-results.search-listing-result > div > div > div.row.restaurant__list-row.js-toggle-result.js-geolocation > div:nth-child("+i+") > div > div.card__menu-content.js-match-height-content > h5 > a").text();
   var city = $("body > main > section.section-main.search-results.search-listing-result > div > div > div.row.restaurant__list-row.js-toggle-result.js-geolocation > div:nth-child("+i+") > div > div.card__menu-footer.d-flex.js-match-height-footer > div.card__menu-footer--location.flex-fill").text();
@@ -19,16 +28,18 @@ const parse = data => {
   {
   tab.push({name,city});
   }
-  }
-  //return {name, experience};
+  }*/
+  const a = $('a.link').each((i,element) => {
+  var b = $(element).attr('aria-label');
+  var ref = $(element).attr('href');
+
+  var name = b.replace(/Open /g,'').trim().toLowerCase();
+  tab.push({name,ref});
+  });
   return tab
 };
 
-/**
- * Scrape a given restaurant url
- * @param  {String}  url
- * @return {Object} restaurant
- */
+
 module.exports.scrapeRestaurant = async url => {
   const response = await axios(url);
   const {data, status} = response;
@@ -36,20 +47,6 @@ module.exports.scrapeRestaurant = async url => {
   if (status >= 200 && status < 300) {
     return parse(data);
   }
-  if(url  == 'https://guide.michelin.com/fr/fr/restaurants/bib-gourmand/page/29')
-  {
-  const $ = cheerio.load(data);
-  var tab = [];
-  for(var i = 1;i<6;i++)
-  {
-  var name = $("body > main > section.section-main.search-results.search-listing-result > div > div > div.row.restaurant__list-row.js-toggle-result.js-geolocation > div:nth-child("+i+") > div > div.card__menu-content.js-match-height-content > h5 > a").text();
-  var city = $("body > main > section.section-main.search-results.search-listing-result > div > div > div.row.restaurant__list-row.js-toggle-result.js-geolocation > div:nth-child("+i+") > div > div.card__menu-footer.d-flex.js-match-height-footer > div.card__menu-footer--location.flex-fill").text();
-  name = name.replace(/\n/g,'').trim();
-  city = city.replace(/\n/g,'').trim(); 
-  tab.push({name,city});
-  }
-  return tab;
-}
   console.error(status);
 
   return null;
