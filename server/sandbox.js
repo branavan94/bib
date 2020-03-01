@@ -1,5 +1,5 @@
-/* eslint-disable no-console, no-process-exit */
 const michelin = require('./michelin');
+const fs = require('fs') ;
 const axios = require('C:/Users/brano/Desktop/4A/S8/Web Application Architectures/Bib/bib2/bib/node_modules/axios');
 const restaurateur = require('./restaurateur');
 const levenshtein = require('js-levenshtein');
@@ -10,8 +10,8 @@ async function sandbox () {
 
     var restaurant = await michelin.scrapeRestaurant('https://guide.michelin.com/fr/fr/restaurants/bib-gourmand/');
     for(var i = 0; i<restaurant.length;i++){
-    var tel = await load_michelin.getcoordinates("https://guide.michelin.com/"+restaurant[i].ref);
-    restaurant[i].ref = tel;
+    var tel = await load_michelin.getcoordinates("https://guide.michelin.com/"+restaurant[i].telephone);
+    restaurant[i].telephone = tel;
   }
 
    var count = 2;
@@ -22,42 +22,46 @@ async function sandbox () {
         {
               for(var i = 0; i<temp.length;i++)
               {
-                  var tel = await load_michelin.getcoordinates("https://guide.michelin.com/"+temp[i].ref);
-                  temp[i].ref = tel;
+                  var tel = await load_michelin.getcoordinates("https://guide.michelin.com/"+temp[i].telephone);
+                  temp[i].telephone = tel;
               }
           temp.forEach(item => restaurant.push(item));
           count++;
         }
       } while(temp.length != 0);
-   console.log(restaurant.length);
 
   var maitre = await restaurateur.scrapeMaitre('https://www.maitresrestaurateurs.fr/module/annuaire/ajax/load-maps-data');
-  console.log(maitre.length)
 
   var result = [];
   var count = 0;
   for(var i = 0;i<restaurant.length;i++)
   {
-  var n = maitre.includes(restaurant[i].ref);
+  var n = maitre.includes(restaurant[i].telephone);
   if(n == true)
   {
     count++;
-    result.push(restaurant[i].name);
+    var temp1 = restaurant[i].name;
+    var temp2 = restaurant[i].telephone;
+    result.push({temp1,temp2});
   }
   }
   console.log(result);
-  console.log(result.length)
-  /*axios.get('')
-  .then(async function (userResponse) 
-  {
-    var maitre = restaurateur.scrapeMaitre(userResponse);
-    return maitre
-  });*/
-    } 
+var stream = fs.createWriteStream("data.txt");
+stream.once('open', function(fd) {
+  result.forEach(element => {
+  stream.write(element.temp1+"                                    telephone:"+element.temp2+"\n");
+  });
+    stream.end();
+});
+
+  console.log("ok");
+} 
   catch (e) 
   {
     console.error(e);
     process.exit(1);
   }
 }
+
+
 sandbox();

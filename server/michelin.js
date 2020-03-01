@@ -31,10 +31,10 @@ const parse = data => {
   }*/
   const a = $('a.link').each((i,element) => {
   var b = $(element).attr('aria-label');
-  var ref = $(element).attr('href');
+  var telephone = $(element).attr('href');
 
   var name = b.replace(/Open /g,'').trim().toLowerCase();
-  tab.push({name,ref});
+  tab.push({name,telephone});
   });
   return tab
 };

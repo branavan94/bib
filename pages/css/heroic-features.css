@@ -1,0 +1,40 @@
+/*!
+ * Start Bootstrap - Heroic Features (https://startbootstrap.com/template-overviews/heroic-features)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-heroic-features/blob/master/LICENSE)
+ */
+ body {
+ 	  padding-top: 56px;
+  background: url('C:/Users/brano/Desktop/4A/S8/Web Application Architectures/Project Bib/bib/img/background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+iframe {
+
+  background: url('C:/Users/brano/Desktop/4A/S8/Web Application Architectures/Project Bib/bib/img/iframe1.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+margin-top: 20px;
+margin-bottom: 30px;
+-webkit-border-radius: 12px;
+opacity: 0.8;
+} 
+
+.carousel-item {
+  height: 65vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.carousel-caption {
+	font-size: xx-large;
+	color : white;
+
+}
