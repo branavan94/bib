@@ -1,56 +1,56 @@
-les jardins du léman telephone:0450728032
-le manoir du sphinx telephone:0296232542
-julien telephone:0388973009
-le chalet telephone:0561642431
-le petit st-thomas telephone:0251490599
-winstub du chambard telephone:0389471017
-auberge de la rivière telephone:0251523215
-les canailles ménilmontant telephone:0143584545
-la closerie des roses telephone:0240983330
-le saint-jacques telephone:0243899550
-le grand st-benoît telephone:0238351192
-au chapeau rouge telephone:0247980808
-maison gambert telephone:0475091985
-france et fuchsias telephone:0233544041
-côté bistro telephone:0254206230
-l'embellie telephone:0385508181
-auberge de l'île telephone:0247585107
-la table telephone:0494705595
-auberge de ti-coz telephone:0298945002
-voyages des sens telephone:0474513994
-la fleur de sel telephone:0479374998
-ttotta telephone:0559470355
-la forêt telephone:0237377850
-hôtel de france telephone:0470076026
-bistrot des anges telephone:0492181828
-la pointe du cap coz telephone:0298560163
-la table de léo telephone:0553578915
-chez michel telephone:0144530620
-au raisin d'or telephone:0389710569
-le bon accueil telephone:0383256210
-cheval blanc telephone:0389258186
-auberge des deux magots telephone:0299906075
-l'épicurien telephone:0563531070
-auberge pyrénées cévennes telephone:0143573378
-le rabelais telephone:0490508440
-le réciproque telephone:0986378077
-le lancelot telephone:0238329115
-le st-georges telephone:0467683138
-coteaux et fourchettes telephone:0490663599
-auberge des chenêts telephone:0386342334
-à la 12 telephone:0387013018
-la griotte telephone:0381571771
-la maison telephone:0545352177
-histoire ancienne telephone:0321341120
-au colombier telephone:0474670468
-manoir de la pommeraie telephone:0231680771
-les épices curiens telephone:0329868458
-le dauphin telephone:0231862226
-la maison carrier telephone:0450530003
-les capucins telephone:0384280460
-la table d'aimé telephone:0468343577
-vidal telephone:0471087050
-la balade des saveurs telephone:0490952785
-ar maen hir telephone:0256101837
-le jardin d'alice telephone:0321688888
-le bastion telephone:0468120251
+les jardins du léman                                    telephone:0450728032
+le manoir du sphinx                                    telephone:0296232542
+julien                                    telephone:0388973009
+le chalet                                    telephone:0561642431
+le petit st-thomas                                    telephone:0251490599
+winstub du chambard                                    telephone:0389471017
+auberge de la rivière                                    telephone:0251523215
+les canailles ménilmontant                                    telephone:0143584545
+la closerie des roses                                    telephone:0240983330
+le saint-jacques                                    telephone:0243899550
+le grand st-benoît                                    telephone:0238351192
+au chapeau rouge                                    telephone:0247980808
+maison gambert                                    telephone:0475091985
+france et fuchsias                                    telephone:0233544041
+côté bistro                                    telephone:0254206230
+l'embellie                                    telephone:0385508181
+auberge de l'île                                    telephone:0247585107
+la table                                    telephone:0494705595
+auberge de ti-coz                                    telephone:0298945002
+voyages des sens                                    telephone:0474513994
+la fleur de sel                                    telephone:0479374998
+ttotta                                    telephone:0559470355
+la forêt                                    telephone:0237377850
+hôtel de france                                    telephone:0470076026
+bistrot des anges                                    telephone:0492181828
+la pointe du cap coz                                    telephone:0298560163
+la table de léo                                    telephone:0553578915
+chez michel                                    telephone:0144530620
+au raisin d'or                                    telephone:0389710569
+le bon accueil                                    telephone:0383256210
+cheval blanc                                    telephone:0389258186
+auberge des deux magots                                    telephone:0299906075
+l'épicurien                                    telephone:0563531070
+auberge pyrénées cévennes                                    telephone:0143573378
+le rabelais                                    telephone:0490508440
+le réciproque                                    telephone:0986378077
+le lancelot                                    telephone:0238329115
+le st-georges                                    telephone:0467683138
+coteaux et fourchettes                                    telephone:0490663599
+auberge des chenêts                                    telephone:0386342334
+à la 12                                    telephone:0387013018
+la griotte                                    telephone:0381571771
+la maison                                    telephone:0545352177
+histoire ancienne                                    telephone:0321341120
+au colombier                                    telephone:0474670468
+manoir de la pommeraie                                    telephone:0231680771
+les épices curiens                                    telephone:0329868458
+le dauphin                                    telephone:0231862226
+la maison carrier                                    telephone:0450530003
+les capucins                                    telephone:0384280460
+la table d'aimé                                    telephone:0468343577
+vidal                                    telephone:0471087050
+la balade des saveurs                                    telephone:0490952785
+ar maen hir                                    telephone:0256101837
+le jardin d'alice                                    telephone:0321688888
+le bastion                                    telephone:0468120251

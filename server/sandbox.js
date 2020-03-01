@@ -49,7 +49,7 @@ async function sandbox () {
 var stream = fs.createWriteStream("data.txt");
 stream.once('open', function(fd) {
   result.forEach(element => {
-  stream.write(element.temp1+"                                    telephone:"+element.temp2+"\n");
+  stream.write(element.temp1+" telephone:"+element.temp2+"\n");
   });
     stream.end();
 });
